@@ -7,6 +7,12 @@ history = []
 i = 0
 j = 0
 
+class TerpinalError(Exception):
+    '''
+    Ошибка терпинала.
+    Нужна для выхода из системы.
+    '''
+
 def run(oled, ps_fun, com):
     '''
     Запустить команду.
@@ -42,7 +48,7 @@ def run(oled, ps_fun, com):
         j = 0
     elif com.find('music') != -1:
         num = int(com.replace('music', '')) - 1
-        if num < len(melody):
+        if num < len(melody) or num > 0 or num == 0:
             playsong(melody[num])
         i += 10
         j = 0
