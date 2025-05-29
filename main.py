@@ -4,7 +4,7 @@ from utime import *
 import sys
 
 '''
-Файл для песен.
+Для песен.
 Кредиты:
 https://github.com/twisst/Music-for-Raspberry-Pi-Pico - ну... типо весь код там.
 Песни:
