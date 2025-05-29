@@ -7,6 +7,8 @@ https://github.com/twisst/Music-for-Raspberry-Pi-Pico - ну... типо вес�
 2 - Тэйк он ми. А-ха.
 3 - Стар варс теме.
 '''
+from machine import *
+
 #Ноты
 notesforboot = {
 "NOTE_B0": 31,
