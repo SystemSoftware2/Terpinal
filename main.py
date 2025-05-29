@@ -106,18 +106,6 @@ notesforboot = {
 "NOTE_DS8": 4978
 }
 
-#мелодии
-melody = []
-
-notes = ['Nokia Ringtone', 180, 'NOTE_E5', '8', 'NOTE_D5', '8', 'NOTE_FS4', '4', 'NOTE_GS4', '4', 'NOTE_CS5', '8', 'NOTE_B4', '8', 'NOTE_D4', '4', 'NOTE_E4', '4', 'NOTE_B4', '8', 'NOTE_A4', '8', 'NOTE_CS4', '4', 'NOTE_E4', '4', 'NOTE_A4', '2']
-melody.append(notes)
-
-notes = ['Take on me - A-ha', 140, 'NOTE_FS5', '8', 'NOTE_FS5', '8', 'NOTE_D5', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'NOTE_GS5', '8', 'NOTE_GS5', '8', 'NOTE_A5', '8', 'NOTE_B5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_D5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8', 'NOTE_E5', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8', 'NOTE_FS5', '8', 'NOTE_FS5', '8', 'NOTE_D5', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'NOTE_GS5', '8', 'NOTE_GS5', '8', 'NOTE_A5', '8', 'NOTE_B5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_D5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8', 'NOTE_E5', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8', 'NOTE_FS5', '8', 'NOTE_FS5', '8', 'NOTE_D5', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_B4', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_E5', '8', 'NOTE_GS5', '8', 'NOTE_GS5', '8', 'NOTE_A5', '8', 'NOTE_B5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_A5', '8', 'NOTE_E5', '8', 'REST', '8', 'NOTE_D5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'REST', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8', 'NOTE_E5', '8', 'NOTE_FS5', '8', 'NOTE_E5', '8']
-melody.append(notes)
-
-notes = ['Star Wars theme', 108, 'NOTE_AS4', '8', 'NOTE_AS4', '8', 'NOTE_AS4', '8', 'NOTE_F5', '2', 'NOTE_C6', '2', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_AS5', '8', 'NOTE_G5', '2', 'NOTE_C5', '8', 'NOTE_C5', '8', 'NOTE_C5', '8', 'NOTE_F5', '2', 'NOTE_C6', '2', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_AS5', '8', 'NOTE_G5', '2', 'NOTE_C5', '-8', 'NOTE_C5', '16', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_F5', '8', 'NOTE_G5', '8', 'NOTE_A5', '8', 'NOTE_G5', '4', 'NOTE_D5', '8', 'NOTE_E5', '4', 'NOTE_C5', '-8', 'NOTE_C5', '16', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_C6', '-8', 'NOTE_G5', '16', 'NOTE_G5', '2', 'REST', '8', 'NOTE_C5', '8', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_F5', '8', 'NOTE_G5', '8', 'NOTE_A5', '8', 'NOTE_G5', '4', 'NOTE_D5', '8', 'NOTE_E5', '4', 'NOTE_C6', '-8', 'NOTE_C6', '16', 'NOTE_F6', '4', 'NOTE_DS6', '8', 'NOTE_CS6', '4', 'NOTE_C6', '8', 'NOTE_AS5', '4', 'NOTE_GS5', '8', 'NOTE_G5', '4', 'NOTE_F5', '8', 'NOTE_C6', '1']
-melody.append(notes)
-
 #динамик
 buzzer = PWM(Pin(2))
 
@@ -182,7 +170,7 @@ history = []
 Именно здесь программа понимает название клавиши.
 A - clear
 B - help
-C - music
+C - echo
 D - history
 # - exit
 * - enter
@@ -230,7 +218,7 @@ j = 0
 
 '''
 Функция обработки команд терпинала.
-Команды: clear, help, music цифра, history, exit
+Команды: clear, help, echo цифра, history, exit
 '''
 def run(com):
     global i, j, history
@@ -251,18 +239,18 @@ def run(com):
         oled.fill(0)
         oled.show()
         i = 0
-        coms = ['help: B', 'history: D', 'clear: A', 'exit: #', 'music 1-3: C']
+        coms = ['help: B', 'history: D', 'clear: A', 'exit: #', 'echo <number>: C']
         for rt in coms:
             oled.text(rt, 0, i)
             oled.show()
             i += 10
         j = 0
-    elif com.find('music') != -1:
-        num = int(com.replace('music', '')) - 1
-        if num < len(melody):
-            playsong(melody[num])
+    elif com.find('echo') != -1:
+        num = str(int(com.replace('echo', '')))
         i += 10
         j = 0
+        oled.text(num, j, i)
+        i += 10
     elif com == 'history':
         oled.fill(0)
         oled.show()
