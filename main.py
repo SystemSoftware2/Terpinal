@@ -246,11 +246,21 @@ def run(com):
             i += 10
         j = 0
     elif com.find('echo') != -1:
-        num = str(int(com.replace('echo', '')))
+        history.append('echo')
+        try:
+            num = str(int(com.replace('echo', '')))
+        except:
+            i += 10
+            j = 0
+            oled.text("Error!", 0, i)
+            oled.show()
+            i += 10
+            return 0
         i += 10
         j = 0
         oled.text(num, j, i)
         i += 10
+        return 0
     elif com == 'history':
         oled.fill(0)
         oled.show()
