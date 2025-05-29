@@ -9,6 +9,7 @@ D - history
 * - enter
 Ну и цифры.
 '''
+from machine import *
 
 #Обозначение клавиш
 keyName = [['1', '2', '3', 'clear'],
