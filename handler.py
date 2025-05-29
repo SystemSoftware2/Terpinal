@@ -13,11 +13,12 @@ class TerpinalError(Exception):
     Нужна для выхода из системы.
     '''
 
-def run(oled, ps_fun, com):
+def run(oled, melody, ps_fun, com):
     '''
     Запустить команду.
     Параметры:
     oled (SSD_1306_I2C): дисплей
+    melody (list): список мелодий
     ps_fun (функция): функция, которая включает песню
     com (str): команда
     Возращает... Нечего
