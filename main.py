@@ -3,6 +3,17 @@ from ssd1306 import SSD1306_I2C
 from utime import *
 import sys
 
+'''
+Файл для песен.
+Кредиты:
+https://github.com/twisst/Music-for-Raspberry-Pi-Pico - ну... типо весь код там.
+Песни:
+1 - Нокиа рингтон.
+2 - Тэйк он ми. А-ха.
+3 - Стар варс теме.
+'''
+
+#ноты
 notesforboot = {
 "NOTE_B0": 31,
 "NOTE_C1": 33,
@@ -95,6 +106,7 @@ notesforboot = {
 "NOTE_DS8": 4978
 }
 
+#мелодии
 melody = []
 
 notes = ['Nokia Ringtone', 180, 'NOTE_E5', '8', 'NOTE_D5', '8', 'NOTE_FS4', '4', 'NOTE_GS4', '4', 'NOTE_CS5', '8', 'NOTE_B4', '8', 'NOTE_D4', '4', 'NOTE_E4', '4', 'NOTE_B4', '8', 'NOTE_A4', '8', 'NOTE_CS4', '4', 'NOTE_E4', '4', 'NOTE_A4', '2']
@@ -106,12 +118,13 @@ melody.append(notes)
 notes = ['Star Wars theme', 108, 'NOTE_AS4', '8', 'NOTE_AS4', '8', 'NOTE_AS4', '8', 'NOTE_F5', '2', 'NOTE_C6', '2', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_AS5', '8', 'NOTE_G5', '2', 'NOTE_C5', '8', 'NOTE_C5', '8', 'NOTE_C5', '8', 'NOTE_F5', '2', 'NOTE_C6', '2', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F6', '2', 'NOTE_C6', '4', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_AS5', '8', 'NOTE_G5', '2', 'NOTE_C5', '-8', 'NOTE_C5', '16', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_F5', '8', 'NOTE_G5', '8', 'NOTE_A5', '8', 'NOTE_G5', '4', 'NOTE_D5', '8', 'NOTE_E5', '4', 'NOTE_C5', '-8', 'NOTE_C5', '16', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_C6', '-8', 'NOTE_G5', '16', 'NOTE_G5', '2', 'REST', '8', 'NOTE_C5', '8', 'NOTE_D5', '-4', 'NOTE_D5', '8', 'NOTE_AS5', '8', 'NOTE_A5', '8', 'NOTE_G5', '8', 'NOTE_F5', '8', 'NOTE_F5', '8', 'NOTE_G5', '8', 'NOTE_A5', '8', 'NOTE_G5', '4', 'NOTE_D5', '8', 'NOTE_E5', '4', 'NOTE_C6', '-8', 'NOTE_C6', '16', 'NOTE_F6', '4', 'NOTE_DS6', '8', 'NOTE_CS6', '4', 'NOTE_C6', '8', 'NOTE_AS5', '4', 'NOTE_GS5', '8', 'NOTE_G5', '4', 'NOTE_F5', '8', 'NOTE_C6', '1']
 melody.append(notes)
 
-buzzer = PWM(Pin(2))   # pin where buzzer is connected
+#динамик
+buzzer = PWM(Pin(2))
 
-volume = 600   # set volume to a value between 0 and 1000
+#шум
+volume = 600
 
-# functions to play the melodies
-
+#функции для звука
 def playtone(frequency):
     buzzer.duty_u16(volume)
     buzzer.freq(frequency)
@@ -120,16 +133,11 @@ def be_quiet():
     buzzer.duty_u16(0)  # turns sound off
 
 def duration(tempo, t):
-    
-    # calculate the duration of a whole note in milliseconds (60s/tempo)*4 beats
     wholenote = (60000 / tempo) * 4
-    
-    # calculate the duration of the current note
-    # (we need an integer without decimals, hence the // instead of /)
+
     if t > 0:
       noteDuration = wholenote // t
     elif (t < 0):
-      # dotted notes are represented with negative durations
       noteDuration = wholenote // abs(t)
       noteDuration *= 1.5 # increase their duration by a half
     
@@ -137,10 +145,8 @@ def duration(tempo, t):
 
 def playsong(mysong):
     try:
-        tempo = mysong[1] # get the tempo for this song from the melodies list 
+        tempo = mysong[1]
 
-        # iterate over the notes of the melody. 
-        # The array is twice the number of notes (notes + durations)
         for thisNote in range(2, len(mysong), 2):
             
             noteduration = duration(tempo, int(mysong[thisNote+1]))
@@ -150,24 +156,38 @@ def playsong(mysong):
             else:
                 playtone(notesforboot[mysong[thisNote]])
             
-            sleep(noteduration*0.9/1000) # we only play the note for 90% of the duration...
+            sleep(noteduration*0.9/1000)
             be_quiet()
-            sleep(noteduration*0.1/1000) # ... and leave 10% as a pause between notes
+            sleep(noteduration*0.1/1000)
             
-    except: # make sure the buzzer stops making noise when something goes wrong or when the script is stopped
+    except:
         be_quiet()
         
 
+#включаем звук загрузки
 playsong(["Boot sound", 90, "NOTE_E5", 9, "NOTE_D5", 13, 'NOTE_FS5', '10', 'NOTE_FS5', '13', 'NOTE_D5', '3', 'NOTE_C5', '13', 'NOTE_F5', '5', 'NOTE_C6', '6'])
 
+#ошибка терпинала
 class TerpinalError(Exception):
     pass
 
+#нужные переменные
 i2c=I2C(0,sda=Pin(0), scl=Pin(1), freq=400000)
 oled = SSD1306_I2C(128, 64, i2c)
                 
 history = []
 
+'''
+"драйвер" клавиатуры.
+Именно здесь программа понимает название клавиши.
+A - clear
+B - help
+C - music
+D - history
+# - exit
+* - enter
+Ну и цифры.
+'''
 keyName = [['1', '2', '3', 'clear'],
            ['4', '5', '6', 'help'],
            ['7', '8', '9', 'music'],
@@ -203,10 +223,15 @@ def keypadRead():
         return keyName[j_ifPressed][i_ifPressed]
     else:
         return -1
-    
+
+#тоже нужно
 i = 0
 j = 0
-    
+
+'''
+Функция обработки команд терпинала.
+Команды: clear, help, music цифра, history, exit
+'''
 def run(com):
     global i, j, history
     
@@ -249,6 +274,7 @@ def run(com):
         j = 0
     history.append(com)
 
+#вступление и основной цикл
 oled.text("help - B,", 0, 0)
 oled.text("enter - *", 0, 10)
 oled.show()
